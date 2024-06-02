@@ -1,0 +1,43 @@
+type Query {
+  draw(date: String, limit: Int, type: String): draw
+}
+
+type draw {
+  backendError: String
+  draws: [modelDraw]
+  success: Boolean!
+  visibleErrors: visibleErrors!
+}
+
+type modelDraw {
+  additionalNumbers: [String]
+  date: String
+  gameAmount: Int
+  jackpot: Int
+  megaPlier: String
+  numbers: [String]
+  odds: [modelOdd]
+  powerPlay: String
+  shares: [String]
+  time: String
+  video: String
+}
+
+type modelOdd {
+  link: String
+  numberOfWinners: Int
+  numbers: [String]
+  odd: Int
+  winningClass: Int
+  withOptions: [String]
+}
+
+scalar String
+
+scalar Int
+
+scalar Boolean
+
+type visibleErrors {
+  error: String
+}
